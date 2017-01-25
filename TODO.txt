@@ -1,6 +1,0 @@
-This is a list of TODOs/general improvement notes:
-
-0. Add column headers to advanced form to distinguish "columns".
-1. Add a menu option to switch between regular (single) and advanced (3-column) forms.
-2. Refactor initial UI implementation into a control (instead of a form).
-3. Make a better way to add/remove controls on a form at-will (replacing fixed 3-column version with dynamic version).
