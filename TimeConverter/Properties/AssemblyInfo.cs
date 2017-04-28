@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("TimeConverter")]
 [assembly: AssemblyDescription("A simple tool for converting time values.")]
 [assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("MayesIDevel")]
 [assembly: AssemblyProduct("TimeConverter")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
