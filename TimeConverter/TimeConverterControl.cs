@@ -7,28 +7,68 @@ namespace TimeConverter
 {
 	public partial class TimeConverterControl : UserControl
 	{
-		public TimeConverterControl()
-		{
-			InitializeComponent();
-			_ResetTimeBoxes();
-		}
+		#region Private Fields
 
 		private TextBox mLastModifiedTimeBox;
 
-		private void _OnSychronizeClick(object sender, EventArgs e)
+		#endregion Private Fields
+
+		#region Public Constructors
+
+		public TimeConverterControl()
 		{
-			_Synchronize();
+			InitializeComponent();
+			ResetTimeBoxes();
 		}
+
+		#endregion Public Constructors
+
+		#region Public Methods
+
+		public void ResetTimeBoxes()
+		{
+			universalTimeBox.Text = DateTime.UtcNow.ToString(CultureInfo.InvariantCulture);
+			Synchronize();
+		}
+
+		public void Synchronize()
+		{
+			_ResetTimeBoxesFormatting();
+
+			switch (mLastModifiedTimeBox.Tag.ToString())
+			{
+				case "unix":
+					_SyncToUnixTime();
+					break;
+
+				case "universal":
+					_SyncToUniversalTime();
+					break;
+
+				case "local":
+					_SyncToLocalTime();
+					break;
+
+				default:
+					throw new InvalidOperationException(
+						string.Format(
+							"mLastModifiedTimeBox was set to an invalid control. Please update _Synchronize() with a case for handling the field '{0}', with the Tag '{1}'.",
+							mLastModifiedTimeBox.Name, mLastModifiedTimeBox.Tag));
+			}
+		}
+
+		#endregion Public Methods
+
+		#region Private Methods
 
 		private void _OnResetClick(object sender, EventArgs e)
 		{
-			_ResetTimeBoxes();
+			ResetTimeBoxes();
 		}
 
-		private void _ResetTimeBoxes()
+		private void _OnSychronizeClick(object sender, EventArgs e)
 		{
-			universalTimeBox.Text = DateTime.UtcNow.ToString(CultureInfo.InvariantCulture);
-			_Synchronize();
+			Synchronize();
 		}
 
 		private void _ResetTimeBoxesFormatting()
@@ -38,35 +78,11 @@ namespace TimeConverter
 			localTimeBox.ForeColor = DefaultForeColor;
 		}
 
-		private void _Synchronize()
-		{
-			_ResetTimeBoxesFormatting();
-
-			switch (mLastModifiedTimeBox.Tag.ToString())
-			{
-				case "unix":
-					_SyncToUnixTime();
-					break;
-				case "universal":
-					_SyncToUniversalTime();
-					break;
-				case "local":
-					_SyncToLocalTime();
-					break;
-				default:
-					throw new InvalidOperationException(
-						string.Format(
-							"mLastModifiedTimeBox was set to an invalid control. Please update _Synchronize() with a case for handling the field '{0}', with the Tag '{1}'.",
-							mLastModifiedTimeBox.Name, mLastModifiedTimeBox.Tag));
-			}
-		}
-
 		private void _SyncToLocalTime()
 		{
 			DateTime localTime;
 			if (DateTime.TryParse(localTimeBox.Text, out localTime))
 			{
-
 				var universalTime = localTime.ToUniversalTime();
 
 				unixTimeBox.Text = UnixTimeConverter.ConvertDateTimeToUnixTime(universalTime).ToString(CultureInfo.InvariantCulture);
@@ -103,8 +119,8 @@ namespace TimeConverter
 			int unixTimestamp;
 			if (int.TryParse(unixTimeBox.Text, out unixTimestamp))
 			{
-				// We don't re-set the unixTimeBox text here, because it would never
-				// undergo additional formatting like the other two may in their cases.
+				// We don't re-set the unixTimeBox text here, because it would never undergo
+				// additional formatting like the other two may in their cases.
 
 				var unixDateTime = UnixTimeConverter.ConvertUnixTimeToDateTime(unixTimestamp);
 				universalTimeBox.Text = unixDateTime.ToString(CultureInfo.InvariantCulture);
@@ -126,5 +142,7 @@ namespace TimeConverter
 				mLastModifiedTimeBox = timeBox;
 			}
 		}
+
+		#endregion Private Methods
 	}
 }

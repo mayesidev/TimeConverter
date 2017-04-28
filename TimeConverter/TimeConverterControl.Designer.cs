@@ -70,19 +70,19 @@
 			// syncButton
 			// 
 			this.syncButton.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.syncButton.Location = new System.Drawing.Point(103, 78);
+			this.syncButton.Location = new System.Drawing.Point(103, 75);
 			this.syncButton.MinimumSize = new System.Drawing.Size(110, 36);
 			this.syncButton.Name = "syncButton";
-			this.syncButton.Size = new System.Drawing.Size(169, 69);
+			this.syncButton.Size = new System.Drawing.Size(169, 72);
 			this.syncButton.TabIndex = 20;
-			this.syncButton.Text = "Synchronize";
+			this.syncButton.Text = "&Synchronize (F5)";
 			this.syncButton.UseVisualStyleBackColor = true;
 			this.syncButton.Click += new System.EventHandler(this._OnSychronizeClick);
 			// 
 			// localTimeBox
 			// 
 			this.localTimeBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.localTimeBox.Location = new System.Drawing.Point(103, 53);
+			this.localTimeBox.Location = new System.Drawing.Point(103, 51);
 			this.localTimeBox.MinimumSize = new System.Drawing.Size(110, 20);
 			this.localTimeBox.Name = "localTimeBox";
 			this.localTimeBox.Size = new System.Drawing.Size(169, 20);
@@ -93,7 +93,7 @@
 			// universalTimeBox
 			// 
 			this.universalTimeBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.universalTimeBox.Location = new System.Drawing.Point(103, 28);
+			this.universalTimeBox.Location = new System.Drawing.Point(103, 27);
 			this.universalTimeBox.MinimumSize = new System.Drawing.Size(110, 20);
 			this.universalTimeBox.Name = "universalTimeBox";
 			this.universalTimeBox.Size = new System.Drawing.Size(169, 20);
@@ -115,12 +115,12 @@
 			// resetButton
 			// 
 			this.resetButton.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.resetButton.Location = new System.Drawing.Point(3, 78);
+			this.resetButton.Location = new System.Drawing.Point(3, 75);
 			this.resetButton.MinimumSize = new System.Drawing.Size(65, 36);
 			this.resetButton.Name = "resetButton";
-			this.resetButton.Size = new System.Drawing.Size(94, 69);
+			this.resetButton.Size = new System.Drawing.Size(94, 72);
 			this.resetButton.TabIndex = 16;
-			this.resetButton.Text = "Reset";
+			this.resetButton.Text = "&Reset";
 			this.resetButton.UseVisualStyleBackColor = true;
 			this.resetButton.Click += new System.EventHandler(this._OnResetClick);
 			// 
@@ -128,10 +128,10 @@
 			// 
 			this.localTimeLabel.AutoSize = true;
 			this.localTimeLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.localTimeLabel.Location = new System.Drawing.Point(3, 50);
+			this.localTimeLabel.Location = new System.Drawing.Point(3, 48);
 			this.localTimeLabel.MinimumSize = new System.Drawing.Size(65, 15);
 			this.localTimeLabel.Name = "localTimeLabel";
-			this.localTimeLabel.Size = new System.Drawing.Size(94, 25);
+			this.localTimeLabel.Size = new System.Drawing.Size(94, 24);
 			this.localTimeLabel.TabIndex = 13;
 			this.localTimeLabel.Text = "Local Time:";
 			this.localTimeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -140,10 +140,10 @@
 			// 
 			this.utcTimeLabel.AutoSize = true;
 			this.utcTimeLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.utcTimeLabel.Location = new System.Drawing.Point(3, 25);
+			this.utcTimeLabel.Location = new System.Drawing.Point(3, 24);
 			this.utcTimeLabel.MinimumSize = new System.Drawing.Size(65, 15);
 			this.utcTimeLabel.Name = "utcTimeLabel";
-			this.utcTimeLabel.Size = new System.Drawing.Size(94, 25);
+			this.utcTimeLabel.Size = new System.Drawing.Size(94, 24);
 			this.utcTimeLabel.TabIndex = 11;
 			this.utcTimeLabel.Text = "UTC Time:";
 			this.utcTimeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -155,7 +155,7 @@
 			this.unixTimeLabel.Location = new System.Drawing.Point(3, 0);
 			this.unixTimeLabel.MinimumSize = new System.Drawing.Size(65, 15);
 			this.unixTimeLabel.Name = "unixTimeLabel";
-			this.unixTimeLabel.Size = new System.Drawing.Size(94, 25);
+			this.unixTimeLabel.Size = new System.Drawing.Size(94, 24);
 			this.unixTimeLabel.TabIndex = 10;
 			this.unixTimeLabel.Text = "Unix Time:";
 			this.unixTimeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
